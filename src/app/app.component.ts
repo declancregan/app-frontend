@@ -20,6 +20,11 @@ export class AppComponent {
   title = 'app';
 
   _bookmarks: Bookmark[];
+
+  _bookmark: Bookmark;
+
+     
+
   errorString: string;
 
   constructor(private _boomarkService: BookmarkService)
@@ -38,7 +43,17 @@ ngOnInit()
         error => this.errorString = <any> error);
   }
 
+
+  postBookmarks(): void {
+     this._boomarkService.postBookmarks(this._bookmark)
+	     .subscribe(bookmarks => this._bookmark = bookmarks,
+        error => this.errorString = <any> error);
+   }
+
+
   clickbutton(){
+    this.postBookmarks();
+    this.getBookmarks();
    console.log("i clicked button");
   }
 
