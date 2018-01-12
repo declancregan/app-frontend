@@ -2,15 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+
+import { Bookmark } from './bookmark';
+
+import { BookmarkService } from './bookmark.service';
+
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, Bookmark
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule, FormsModule, HttpModule, CommonModule
   ],
-  providers: [],
+  providers: [BookmarkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
