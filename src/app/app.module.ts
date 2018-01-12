@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 
-import { Bookmark } from './bookmark';
-
 import { BookmarkService } from './bookmark.service';
 
 import { FormsModule } from '@angular/forms';
@@ -15,12 +13,12 @@ import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent, Bookmark
+    AppComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, HttpModule, CommonModule
   ],
-  providers: [BookmarkService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
