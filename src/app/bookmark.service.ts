@@ -26,7 +26,7 @@ body = {title: 'Brad7', url: 'smith7'};
     postBookmarks(_bookmark:Bookmark): Observable<Bookmark> {
 	let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.post('http://localhost:3000/api/bookmarks', this.body, options)
+        return this._http.post('http://localhost:3000/api/bookmarks', _bookmark, options)
                    .map(res => <Bookmark> res.json())
                     .catch(this.handleError);
     }

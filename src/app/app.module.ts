@@ -10,13 +10,20 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'
 import { HttpModule } from '@angular/http';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, HttpModule, CommonModule
+    BrowserModule, HttpClientModule, FormsModule, HttpModule, CommonModule,
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
