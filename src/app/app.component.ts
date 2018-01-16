@@ -23,6 +23,8 @@ export class AppComponent {
 
   }
 
+
+
 ngOnInit()
 {
   this.getBookmarks();
