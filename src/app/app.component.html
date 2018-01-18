@@ -15,7 +15,7 @@
 
                         <div>
 
-                            <input type="text" class="form-control" id="title" placeholder="titlee"
+                            <input type="text" class="form-control" id="title" placeholder="title"
                             [(ngModel)]="model.title" name="title">
                             
 
@@ -23,7 +23,7 @@
 
                         <div>
 
-                            <input type="text" class="form-control" id="url" placeholder="urll"
+                            <input type="text" class="form-control" id="url" placeholder="url"
                             [(ngModel)]="model.url" name="url">
 
                         </div>
@@ -35,7 +35,8 @@
                 <div>
 
                    <!--> <button type="submit" >Send</button> -->
-                    <button type="button" class="btn btn-default" (click)="clickbutton()">Add</button> 
+                    <button type="button" class="btn btn-default" (click)="clickbutton()">Add</button>
+                    <button type="button" class="btn btn-danger"  (click)="deleteClick()">Delete</button>
 
                 </div>
         </div><!-- end modal-content -->
@@ -51,27 +52,23 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+{{_bookmark.title}}
+{{_bookmark.url}}
 
 <h4>Component</h4>
+{{model.title}}
+{{firstname}}
 
   <div *ngFor="let bookmark of _bookmarks">
   {{bookmark.title}}
+  
   <br/>
   {{bookmark.url}}
   </div>
   <p>Glass icon: <span class="glyphicon glyphicon-glass"></span></p> 
   <button type="button" class="btn btn-default" (click)="clickbutton()">Default</button> 
+
+  <button type="button" class="btn btn-default" (click)="itemClick()">Item</button> 
   
 
 

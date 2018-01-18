@@ -20,7 +20,16 @@ export class BookmarkService {
 
     }
 
-body = {title: 'Brad7', url: 'smith7'};
+    getBookmarksByID(){
+
+        return this._http.get(this._bookmarksUrl + '/2')
+                    .map(res => <Bookmark> res.json())
+                    .catch(this.handleError);
+
+    }
+
+
+
 
 
     postBookmarks(_bookmark:Bookmark): Observable<Bookmark> {
@@ -30,6 +39,16 @@ body = {title: 'Brad7', url: 'smith7'};
                    .map(res => <Bookmark> res.json())
                     .catch(this.handleError);
     }
+
+
+    deleteBookmarks(_id: number){
+	let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.delete('http://localhost:3000/api/bookmarks/' + _id, options)
+                   .map(res => <Bookmark> res.json())
+                    .catch(this.handleError);
+    }
+
 
 private handleError(error: Response){
     console.error(error);

@@ -11,10 +11,11 @@ export class AppComponent {
   title = 'app';
 
   _bookmarks: Bookmark[];
+_bookmark = new Bookmark('', ''); 
+  
+firstname: string;
 
-  _bookmark: Bookmark;
-
-     model = new Bookmark('aaa123', 'bbb123'); 
+     model = new Bookmark('zzzzz', 'bbb123'); 
 
   errorString: string;
 
@@ -27,12 +28,23 @@ export class AppComponent {
 
 ngOnInit()
 {
-  this.getBookmarks();
+  this.firstname = "qwertyyyy";
+ this.getBookmarks();
+
+ this.getBookmarksByID();
+  
 }
 
-  getBookmarks(){
+getBookmarks(){
     this._boomarkService.getBookmarks()
         .subscribe(bookmarks => this._bookmarks = bookmarks,
+        error => this.errorString = <any> error);
+  }
+
+
+  getBookmarksByID(){
+    this._boomarkService.getBookmarksByID()
+        .subscribe(bookmarks => this._bookmark = bookmarks,
         error => this.errorString = <any> error);
   }
 
@@ -43,11 +55,28 @@ ngOnInit()
         error => this.errorString = <any> error);
    }
 
+   deleteBookmarks(): void {
+     this._boomarkService.deleteBookmarks(16)
+	     .subscribe(bookmarks => this._bookmark = bookmarks,
+        error => this.errorString = <any> error);
+   }
+
 
   clickbutton(){
-    this.postBookmarks();
+   this.postBookmarks();
     this.getBookmarks();
-   console.log("i clicked button");
+   console.log("i clicked buttons");
+  }
+
+  deleteClick(){
+    this.deleteBookmarks();
+   this.getBookmarks();
+    console.log("i clicked delete button");
+  }
+
+  itemClick(){
+    this.getBookmarksByID();
+    console.log("i clicked item button");
   }
 
 }
